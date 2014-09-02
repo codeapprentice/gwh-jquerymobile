@@ -22,14 +22,16 @@ $( document ).bind( "mobileinit", function() {
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady()
 {
-     var options = { timeout: 30000 };
+     var options = { timeout: 5000 };
      watchID = navigator.geolocation.watchPosition(onGeoSuccess, onGeoError, options);
 }
+var updates=1;
 function onGeoSuccess(position) {
         var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+        element.innerHTML = '('+updates+') Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;
+        updates++;
 }
 
     // onError Callback receives a PositionError object
