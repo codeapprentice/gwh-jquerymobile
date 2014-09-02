@@ -27,12 +27,6 @@ var g_marker=null;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady()
 {
-    var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 18
-    };
-    g_map = new google.maps.Map(document.getElementById("mapdiv"),mapOptions);
-
     var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
     // watchID = navigator.geolocation.watchPosition(onGeoSuccess, onGeoError, options);
     setInterval(function(){
@@ -79,6 +73,15 @@ function onGeoError(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
 }
+function initializeMap()
+{
+    var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 18
+    };
+    g_map = new google.maps.Map(document.getElementById("mapdiv"),mapOptions);
+}
+google.maps.event.addDomListener(window, 'load', initializeMap);
 
 </script>
 </head>
