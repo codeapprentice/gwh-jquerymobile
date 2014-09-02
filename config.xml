@@ -13,4 +13,7 @@ An example for phonegap build docs.
 </author>
 <gap:plugin name="org.apache.cordova.device"/>
 <gap:plugin name="org.apache.cordova.geolocation"/>
+<access origin="https://*.google.com" />
+<access origin="https://*.googleapis.com" />
+<access origin="https://*.gstatic.com" />
 </widget>
