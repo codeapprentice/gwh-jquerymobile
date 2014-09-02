@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-<script src="fastclick.js"></script>
 <script type='text/javascript' language='javascript'>
 $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
@@ -16,10 +15,6 @@ $( document ).bind( "mobileinit", function() {
     $.mobile.defaultDialogTransition = 'none';
     $("a").attr("data-transition", "none");
 });
-window.addEventListener('load', function() {
-    new FastClick(document.body);
-}, false);
-
 </script>
 </head>
 <body>
