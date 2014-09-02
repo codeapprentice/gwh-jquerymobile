@@ -30,7 +30,7 @@ function onDeviceReady()
     var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
     // watchID = navigator.geolocation.watchPosition(onGeoSuccess, onGeoError, options);
     setInterval(function(){
-        navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+        navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError,options);
     },2000);
 }
 var updates=1;
