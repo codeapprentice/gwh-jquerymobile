@@ -11,12 +11,14 @@
 $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
     $.mobile.allowCrossDomainPages = true;
-     FastClick.attach(document.body);
-     
     $.mobile.defaultPageTransition = 'none';
     $.mobile.defaultDialogTransition = 'none';
     $("a").attr("data-transition", "none");
 });
+window.addEventListener('load', function() {
+    new FastClick(document.body);
+}, false);
+
 </script>
 </head>
 <body>
