@@ -42,7 +42,8 @@ function onGeoSuccess(position)
         g_map.setCenter(loc);
        
         if(g_marker){
-            g_marker.setCenter(loc);
+            g_marker.setMap(null);
+            g_marker=null;
         }
         
         var options = {
