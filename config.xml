@@ -11,10 +11,6 @@ An example for phonegap build docs.
 <author href="https://codeapprentice.net" email="gwh@assetfoundry.com">
  
 </author>
-<feature name="Device">
-<param name="android-package" value="org.apache.cordova.device.Device" />
-</feature>
-<feature name="Geolocation">
-<param name="android-package" value="org.apache.cordova.geolocation" />
-</feature>
+<gap:plugin name="org.apache.cordova.device"/>
+<gap:plugin name="org.apache.cordova.geolocation"/>
 </widget>
