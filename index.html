@@ -42,6 +42,8 @@ function onDeviceReady()
 var updates=1;
 function onGeoSuccess(position) 
 {
+        if(g_map == null) return;
+        
         var loc = new google.maps.LatLng( position.coords.latitude, position.coords.longitude );
         g_map.setCenter(loc);
        
