@@ -30,7 +30,7 @@ function onGeoSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = '('+updates+') Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
+                            '<hr />';
         updates++;
 }
 
@@ -51,7 +51,7 @@ function onGeoError(error) {
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<div id='geolocation' style='margin:40px;width:90%;height:300px;background-color:blue;'><p>Home Page content goes here.</p></div>
+		<div id='geolocation' style='margin:40px;width:90%;height:300px;background-color:#ffffff;'><p>Home Page content goes here.</p></div>
 				
 	</div><!-- /content -->
 
