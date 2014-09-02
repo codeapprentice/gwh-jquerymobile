@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_rhUZ2m4XElLYhC6KeJ6zn9_4rd6qSx4"></script>
 <script src="phonegap.js"></script>
 <script type='text/javascript' language='javascript'>
 $( document ).bind( "mobileinit", function() {
@@ -19,21 +20,54 @@ $( document ).bind( "mobileinit", function() {
 </script>
 
 <script type="text/javascript" charset="utf-8">
+var mapsapikey = "AIzaSyB_rhUZ2m4XElLYhC6KeJ6zn9_4rd6qSx4";
+var g_map=null;
+var g_marker=null;
+
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady()
 {
-     var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+    var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 18
+    };
+    g_map = new google.maps.Map(document.getElementById("mapdiv"),mapOptions);
+
+    var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
     // watchID = navigator.geolocation.watchPosition(onGeoSuccess, onGeoError, options);
     setInterval(function(){
         navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
     },2000);
 }
 var updates=1;
-function onGeoSuccess(position) {
+function onGeoSuccess(position) 
+{
+        var loc = new google.maps.LatLng( position.coords.latitude, position.coords.longitude );
+        g_map.setCenter(loc);
+       
+        if(g_marker){
+            g_marker.setCenter(loc);
+        }
+        
+        var options = {
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          map: g_map,
+          center: loc,
+          radius: 3
+        };
+        // Add the circle for this city to the map.
+        g_marker = new google.maps.Circle(options);
+        /*
+
         var element = document.getElementById('geolocation');
         element.innerHTML = '('+updates+') Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />';
+        */
         updates++;
 }
 
@@ -50,11 +84,11 @@ function onGeoError(error) {
 
 <div id='page-home' data-role="page" data-transition='none'>
 	<div data-role="header">
-		<h1>Home Page</h1>
+		<h1>Testing the Map</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<div id='geolocation' style='margin:40px;width:90%;height:300px;background-color:#ffffff;'><p>Home Page content goes here.</p></div>
+		<div id='mapdiv' style='margin:40px;width:100%;height:100%;background-color:#ffffff;'><p>Home Page content goes here.</p></div>
 				
 	</div><!-- /content -->
 
