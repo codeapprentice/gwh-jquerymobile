@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_rhUZ2m4XElLYhC6KeJ6zn9_4rd6qSx4&amp;sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_rhUZ2m4XElLYhC6KeJ6zn9_4rd6qSx4&amp;sensor=true"></script>
 <script src="phonegap.js"></script>
 <script type='text/javascript' language='javascript'>
 $( document ).bind( "mobileinit", function() {
@@ -54,7 +54,7 @@ function onGeoSuccess(position)
           fillOpacity: 0.35,
           map: g_map,
           center: loc,
-          radius: 3
+          radius: 1
         };
         // Add the circle for this city to the map.
         g_marker = new google.maps.Circle(options);
@@ -79,7 +79,7 @@ function initializeMap()
     console.log('initializing map');
     var mapOptions = {
           center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 18
+          zoom: 25
     };
     g_map = new google.maps.Map(document.getElementById("mapdiv"),mapOptions);
 }
